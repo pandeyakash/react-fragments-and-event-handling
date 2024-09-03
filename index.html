@@ -6,22 +6,43 @@
     <title>Document</title>
   </head>
   <body>
+    <!-- This div will be the root container where the React application will be rendered -->
     <div id="root"></div>
+
+    <!-- React and ReactDOM libraries for rendering the React components -->
     <script src="https://unpkg.com/react@18.2.0/umd/react.production.min.js"></script>
     <script src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
+
+    <!-- Babel standalone to transpile JSX code in the browser -->
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <!-- Babel will transpile this script type (text/babel) to plain JavaScript -->
     <script type="text/babel">
+      // A React Fragment is a way to return multiple elements without creating an extra DOM node.
+      // Here, we use <> </> as shorthand for <React.Fragment></React.Fragment>.
+
       const wrapper = (
         <>
+          {/* A simple paragraph element */}
           <p>React is a JavaScript Library.</p>
+
+          {/* A div element with inline style and a class name */}
           <div style={{ backgroundColor: "red" }} className="main">
+            {/* Another paragraph element */}
             <p>Click the below element to alert "Hello"</p>
+
+            {/* A button element with an onClick event handler */}
+            {/* When the button is clicked, it triggers the alert function that displays "Hello" */}
             <button onClick={() => alert("Hello")}>Alert Helloo</button>
           </div>
         </>
       );
 
+      // 'ReactDOM.createRoot' is a new method in React 18+ for creating a root to manage the rendering of React components.
+      // We pass the DOM element with id 'root' to this method.
       const root = ReactDOM.createRoot(document.getElementById("root"));
+
+      // The 'render' method renders the 'wrapper' React element into the root container.
       root.render(wrapper);
     </script>
   </body>
